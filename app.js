@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 //Rutas de la api
 app.use('/api/product', productRoutes);
 app.use('/api/category', categoryRoutes);
-app.use('/api/po', purchaseOrderRoutes);
+//app.use('/api/po', purchaseOrderRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find the given path.', 404);
