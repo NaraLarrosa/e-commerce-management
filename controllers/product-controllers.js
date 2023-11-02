@@ -23,7 +23,7 @@ const getProductByCategoryId = async (req, res, next) => {
 
   let productsByCategory;
   try {
-    productsByCategory = await Product.find({ "category" : categoryId });  
+    productsByCategory = await Product.find({ 'category' : categoryId });  
   } catch (err) {
     const error = new HttpError(
       'Fetching products failed, please try again later.',
@@ -72,13 +72,14 @@ const createProduct = async(req, res, next ) => {
     );
   };
 
-  const { name, description, color, barcode, category } = req.body;
+  const { name, description, color, barcode, price, category } = req.body;
 
   const createdProduct = new Product({
     name,
     description,
     color,
     barcode,
+    price,
     category
   });
 
@@ -107,7 +108,7 @@ const updateProduct = async(req, res, next) => {
     );
   };
 
-  const { name, description, color, category } = req.body;
+  const { name, description, color, price, category } = req.body;
   const productId = req.params.pid;
 
   let product;
@@ -124,6 +125,7 @@ const updateProduct = async(req, res, next) => {
   product.name = name;
   product.description = description;
   product.color = color;
+  product.price = price;
   product.category = category;
 
   try {
@@ -135,7 +137,7 @@ const updateProduct = async(req, res, next) => {
     );
     return next(error);
   };
-
+  
   res.status(200).json({ product: product.toObject({ getters: true }) });
 };
 

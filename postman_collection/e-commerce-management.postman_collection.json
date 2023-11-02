@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Celular\",\r\n    \"description\": \"Samsung\",\r\n    \"color\": \"Negro\",\r\n    \"barcode\": \"CEL012\",\r\n    \"category\": \"6542703a463fb5fb16455a8e\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Licuadora\",\r\n    \"description\": \"Olsen\",\r\n    \"color\": \"Roja\",\r\n    \"barcode\": \"LICU123\",\r\n    \"price\": 200,\r\n    \"category\": \"6542b25f6fee1c925ab17d5e\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,7 +107,7 @@
 							"variable": [
 								{
 									"key": "cid",
-									"value": "65427cfea94200102e464920"
+									"value": "6542b25f6fee1c925ab17d5e"
 								}
 							]
 						}
@@ -121,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Heladera\",\r\n    \"description\": \"Marca Gafa\",\r\n    \"color\": \"Gris\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Heladera\",\r\n    \"description\": \"Gafa A++\",\r\n    \"color\": \"Gris oscuro\",\r\n    \"category\": \"6542b25f6fee1c925ab17d5\",\r\n    \"price\": 2500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -143,7 +143,7 @@
 							"variable": [
 								{
 									"key": "pid",
-									"value": "654112a3abfae771b6ae997d"
+									"value": "6543db1f21dd513dfc1b1aca"
 								}
 							]
 						}
@@ -170,7 +170,7 @@
 							"variable": [
 								{
 									"key": "pid",
-									"value": "65413e046e680f28dc73843d"
+									"value": "6543db5321dd513dfc1b1acf"
 								}
 							]
 						}
@@ -189,7 +189,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\" : \"Hogar & Deco\",\r\n    \"code\" : 1\r\n}",
+							"raw": "{\r\n    \"title\" : \"Tecnologia\",\r\n    \"code\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -252,7 +252,7 @@
 							"variable": [
 								{
 									"key": "cid",
-									"value": "65415c5489b87c7d314e2e64"
+									"value": "6543daeb21dd513dfc1b1ac5"
 								}
 							]
 						}
@@ -266,7 +266,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\" : \"Tecnologia e innovacion\"\r\n}",
+							"raw": "{\r\n    \"title\" : \"Hogar & Deco\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -288,7 +288,7 @@
 							"variable": [
 								{
 									"key": "cid",
-									"value": "65419878200b789fe44b7365"
+									"value": "6543daeb21dd513dfc1b1ac5"
 								}
 							]
 						}
@@ -315,7 +315,7 @@
 							"variable": [
 								{
 									"key": "cid",
-									"value": "65419878200b789fe44b7365"
+									"value": "6542b2756fee1c925ab17d62"
 								}
 							]
 						}
@@ -323,6 +323,10 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "purchase-order",
+			"item": []
 		}
 	]
 }

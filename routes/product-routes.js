@@ -27,8 +27,11 @@ router.post('/create', //ok
       .not()
       .isEmpty(),
     check('color')
-        .not()
-        .isEmpty(),
+      .not()
+      .isEmpty(),
+    check('price')
+      .not()
+      .isEmpty(),
     check('barcode').isLength({ min: 6 })
     ],
     productControllers.createProduct
@@ -44,7 +47,10 @@ router.patch('/:pid', //ok
       .isEmpty(),
     check('color')
         .not()
-        .isEmpty()
+        .isEmpty(),
+    check('price')
+      .not()
+      .isEmpty()
     ],
     productControllers.updateProduct
 );
