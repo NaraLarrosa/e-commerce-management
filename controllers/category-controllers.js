@@ -96,11 +96,6 @@ const updateCategory = async(req, res, next) => {
     return next(error);
   };
 
-  // if (product.toString() !== req.productData.categoryId) {
-  //   const error = new HttpError('You are not allowed to edit this product.', 401);
-  //   return next(error);
-  // };
-
   category.title = title;
 
   try {
@@ -137,25 +132,12 @@ const deleteCategory = async(req, res, next) => {
     return next(error);
   }
 
-  // if (product.creator.id !== req.userData.userId) {
-  //   const error = new HttpError(
-  //     'You are not allowed to delete this product.',
-  //     401
-  //   );
-  //   return next(error);
-  // }
-
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    // await Category.remove({ session: sess });
     await Category.deleteOne({ _id: categoryId}, {sess})
-    .then(function(){
-      console.log("Category deleted"); // Success
-    }).catch(function(error){
-      console.log(error); // Failure
-    });
     await sess.commitTransaction();
+    
   } catch (err) {
     const error = new HttpError(
       'An error occurred, could not delete category.',

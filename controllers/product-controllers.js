@@ -121,11 +121,6 @@ const updateProduct = async(req, res, next) => {
     return next(error);
   };
 
-  // if (product.toString() !== req.productData.categoryId) {
-  //   const error = new HttpError('You are not allowed to edit this product.', 401);
-  //   return next(error);
-  // };
-
   product.name = name;
   product.description = description;
   product.color = color;
@@ -165,18 +160,10 @@ const deleteProduct = async(req, res, next) => {
     return next(error);
   }
 
-  // if (product.id !== req.userData.userId) {
-  //   const error = new HttpError(
-  //     'You are not allowed to delete this product.',
-  //     401
-  //   );
-  //   return next(error);
-  // }
-
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    await product.remove({ session: sess });
+    await Product.deleteOne({ _id: productId}, {sess})
     await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError(

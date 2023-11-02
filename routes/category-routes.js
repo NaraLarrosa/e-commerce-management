@@ -1,21 +1,14 @@
-//Endpoints a generar:
-// Listar categorias
-// Listar por id
-// Crear categoria
-// Actualizar categoria
-// Borrar categoria
-
 const express = require('express');
 const categoryControllers = require('../controllers/category-controllers');
 const { check } = require('express-validator');
 
 const router = express.Router();
 
-router.get('/', categoryControllers.getCategories); //ok
+router.get('/', categoryControllers.getCategories);
 
-router.get('/:cid', categoryControllers.getCategoryById); //ok
+router.get('/:cid', categoryControllers.getCategoryById);
 
-router.post('/create', //ok
+router.post('/create',
     [
     check('title')
       .not()
@@ -25,7 +18,7 @@ router.post('/create', //ok
     categoryControllers.createCategory
 );
 
-router.patch('/:cid', //ok
+router.patch('/:cid',
     [
     check('title')
       .not()
