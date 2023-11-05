@@ -1,24 +1,16 @@
-// Endpoints: 
-// Listar todos los productos
-// Listar por categoria
-// Listar por id
-// Crear producto
-// Actualizar producto
-// Borrar producto
-
 const express = require('express');
 const productControllers = require('../controllers/product-controllers');
 const { check } = require('express-validator');
 
 const router = express.Router();
 
-router.get('/', productControllers.getProducts); //ok
+router.get('/', productControllers.getProducts);
 
 router.get('/category/:cid', productControllers.getProductByCategoryId);
 
-router.get('/:pid', productControllers.getProductById); //ok
+router.get('/:pid', productControllers.getProductById);
 
-router.post('/create', //ok
+router.post('/create',
     [
     check('name')
       .not()
@@ -37,7 +29,7 @@ router.post('/create', //ok
     productControllers.createProduct
 );
 
-router.patch('/:pid', //ok
+router.patch('/:pid',
     [
     check('name')
       .not()

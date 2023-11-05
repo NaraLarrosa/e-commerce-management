@@ -326,7 +326,158 @@
 		},
 		{
 			"name": "purchase-order",
-			"item": []
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": [],\r\n    \"total\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/po/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"po",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pid\": \"6543db1f21dd513dfc1b1aca\",\r\n\t\"quantity\": 1,\r\n\t\"poid\": \"6546670f8c1ce3ab97be386f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/po/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"po",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"poid\" : \"6546670f8c1ce3ab97be386f\",\r\n    \"pid\" : \"6543db1f21dd513dfc1b1aca\",\r\n    \"quantity\" : 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/po/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"po",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-po",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/po/:poid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"po",
+								":poid"
+							],
+							"variable": [
+								{
+									"key": "poid",
+									"value": "6547f46b1de433b1788b6300"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-product-po",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/po/delete/:poid/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"po",
+								"delete",
+								":poid",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "poid",
+									"value": "6546670f8c1ce3ab97be386f"
+								},
+								{
+									"key": "pid",
+									"value": "6543fb28d3a19c2d715dd964"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

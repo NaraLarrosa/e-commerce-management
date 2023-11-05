@@ -4,13 +4,21 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 const purchaseOrderSchema = new Schema({
-
-   product: [{ type: String, required: true, ref: 'product' }],
-   quantity: { type: Number, required: true },
+   products: [{ 
+      product: {
+         id: { type: String, required:true },
+         name: { type: String, required: true },
+         description: { type: String, required: true },
+         color: { type: String, required: true },
+         barcode: { type: String, required: true, unique: true, minlength: 6 },
+         price: { type: Number, required: true },
+         category: { type: String, required: false, ref: 'Category' }
+      }, 
+      quantity: { type: Number, required: true } 
+   }],
    total: { type: Number, required: true }
-   
 });
 
-poSchema.plugin(uniqueValidator);
+purchaseOrderSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('PO', purchaseOrderSchema);
+module.exports = mongoose.model('PurchaseOrder', purchaseOrderSchema);

@@ -1,20 +1,43 @@
-// Endpoints a generar:
-// Crear carrito
-// Agregar producto
-// Update producto
-// Borrar producto
-// Borrar carrito
+const express = require('express');
+const poControllers = require('../controllers/po-controllers');
+const { check } = require('express-validator');
 
+const router = express.Router();
 
-// const express = require('express');
-// const poControllers = require('../controllers/po-controllers');
-// const { check } = require('express-validator');
+router.post('/create', poControllers.createPurchaseOrder);
 
-// const router = express.Router();
+router.put('/add', 
+    [
+    check('pid')
+        .not()
+        .isEmpty(),
+    check('quantity')
+        .not()
+        .isEmpty(),
+    check('poid')
+        .not()
+        .isEmpty()
+    ],
+    poControllers.addProduct
+);
 
-// router.get('/', poControllers.getPurchaseOrder);
+router.patch('/update',
+    [
+    check('pid')
+        .not()
+        .isEmpty(),
+    check('quantity')
+        .not()
+        .isEmpty(),
+    check('poid')
+        .not()
+        .isEmpty()
+    ],
+    poControllers.updateProduct
+);
 
+router.delete('/delete/:poid/:pid', poControllers.deleteProduct);
 
-// router.delete('/:poid', poControllers.deletePurchaseOrder);
+router.delete('/:poid', poControllers.deletePurchaseOrder);
 
-// module.exports = router;
+module.exports = router;
