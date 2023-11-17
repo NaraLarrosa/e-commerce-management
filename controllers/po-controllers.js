@@ -4,6 +4,20 @@ const Product = require('../models/product');
 const PurchaseOrder = require('../models/po');
 const { validationResult } = require('express-validator');
 
+const getPurchaseOrder = async (req, res, next) => {
+    let purchaseOrder;
+    try {
+        purchaseOrder = await PurchaseOrder.findById('6556cd9f112e990bb5819130');
+    } catch (err) {
+      const error = new HttpError(
+        'The purchase order could not be recovered. Please try again later.',
+        500
+      );
+      return next(error);
+    }
+    res.json({ purchaseOrder: purchaseOrder.toObject({ getters: true }) });
+  };
+
 const createPurchaseOrder = async (req, res, next) => {
     const createdCart = new PurchaseOrder({
         products: [],
@@ -260,6 +274,7 @@ const deletePurchaseOrder = async (req, res, next) => {
 
 };
 
+exports.getPurchaseOrder = getPurchaseOrder;
 exports.createPurchaseOrder = createPurchaseOrder;
 exports.addProduct = addProduct;
 exports.updateProduct = updateProduct;

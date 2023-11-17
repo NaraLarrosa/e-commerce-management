@@ -4,6 +4,8 @@ const { check } = require('express-validator');
 
 const router = express.Router();
 
+router.get('/', poControllers.getPurchaseOrder);
+
 router.post('/create', poControllers.createPurchaseOrder);
 
 router.put('/add', 
